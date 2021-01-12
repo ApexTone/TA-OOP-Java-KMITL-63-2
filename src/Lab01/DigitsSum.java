@@ -3,6 +3,12 @@ package Lab01;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/*
+* Testcase
+* input < 0 or input > 1000
+* input as float, string
+* */
+
 public class DigitsSum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

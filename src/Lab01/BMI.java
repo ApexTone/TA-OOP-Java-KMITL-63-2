@@ -1,7 +1,12 @@
 package Lab01;
 
 import java.util.Scanner;
-
+/*
+* Testcase
+* height, weight <= 0
+* input as string, int
+* floating point precision (input 95.5,50 => output 26.8573)
+* */
 public class BMI {
     public static void main(String[] args) {
         System.out.print("Enter weight in pounds: ");
@@ -13,6 +18,7 @@ public class BMI {
             System.exit(0);
         }
         weight = weight*0.45359237;
+
         System.out.print("Enter height in inches: ");
         height = scanner.nextDouble();
         if(height <= 0){

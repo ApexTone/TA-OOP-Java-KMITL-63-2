@@ -1,5 +1,7 @@
 package Lab01;
-
+/*
+* result = 325932970, someone get 325932966
+* */
 public class Population {
     public static void main(String[] args) {
         final long startPop = 312032486;
