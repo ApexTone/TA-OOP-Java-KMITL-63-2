@@ -1,7 +1,11 @@
 package Lab2;
 
 import java.util.Scanner;
-
+/*
+* Testcase
+* Name with space-bar
+* Name with different length
+* */
 public class CitiesSort {
     public static void main(String[] args) {
         System.out.print("Enter the first city: ");

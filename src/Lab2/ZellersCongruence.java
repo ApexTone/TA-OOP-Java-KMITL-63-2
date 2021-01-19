@@ -1,7 +1,12 @@
 package Lab2;
 
 import java.util.Scanner;
-
+/*
+* Testcase
+* Negative value
+* Invalid day in month
+* Invalid day in leap year
+* */
 public class ZellersCongruence {
     public static void main(String[] args) {
         System.out.print("Enter year (e.g., 2012): ");
@@ -43,7 +48,7 @@ public class ZellersCongruence {
     }
 
     public static String intToDay(int number){
-        String day = "";
+        String day;
 
         switch(number){
             case 1: day="Sunday"; break;

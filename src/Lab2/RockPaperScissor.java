@@ -3,6 +3,12 @@ package Lab2;
 import java.util.Random;
 import java.util.Scanner;
 
+/*
+* Testcase
+* Invalid choice
+* Check for random seed
+* */
+
 public class RockPaperScissor {
     public static void main(String[] args) {
         Random random = new Random(System.currentTimeMillis());//provide true random seed for better randomization

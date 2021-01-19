@@ -2,6 +2,12 @@ package Lab2;
 
 import java.util.Scanner;
 
+/*
+* Testcase
+* Invalid start day
+* Invalid elapsed days
+* */
+
 public class DayOfWeek {
     public static void main(String[] args) {
         int start, elapsed;
@@ -27,7 +33,7 @@ public class DayOfWeek {
     }
 
     public static String intToDay(int number){
-        String day = "";
+        String day;
 
         switch(number){
             case 0: day="Sunday"; break;
