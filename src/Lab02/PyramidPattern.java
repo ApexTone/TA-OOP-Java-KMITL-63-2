@@ -1,4 +1,4 @@
-package Lab2;
+package Lab02;
 
 import java.util.Scanner;
 /*
@@ -10,6 +10,11 @@ public class PyramidPattern {
         System.out.print("Enter the number of lines: ");
         Scanner scanner = new Scanner(System.in);
         int level = scanner.nextInt();
+
+        if(level<1 || level>15){
+            System.out.println("Number of lines must be in range of [1-15]");
+            System.exit(1);
+        }
 
         int spaces = (level-1)*2;
         for(int i=0;i<level;i++){//level control
