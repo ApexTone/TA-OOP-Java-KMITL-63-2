@@ -1,7 +1,10 @@
 package Lab03;
 
 import java.util.ArrayList;
-
+/*
+* Testcase
+* Correctness of Output
+* */
 public class PalindromicPrime {
     public static void main(String[] args) {
         ArrayList<Integer> palindromicPrime = new ArrayList<>();
@@ -16,7 +19,6 @@ public class PalindromicPrime {
                 }
             }
         }
-
         for(int i=1;i<=palindromicPrime.size();i++){
             System.out.print(palindromicPrime.get(i-1)+" ");
             if(i%10 == 0){

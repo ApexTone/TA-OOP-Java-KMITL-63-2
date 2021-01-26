@@ -1,7 +1,10 @@
 package Lab03;
 
 import java.util.Scanner;
-
+/*
+* Testcase
+* Correctness of Output
+* */
 public class ArrayMerge {
     public static void main(String[] args) {
         System.out.print("Enter list1: ");

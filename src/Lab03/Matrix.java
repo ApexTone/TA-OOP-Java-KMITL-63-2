@@ -2,7 +2,10 @@ package Lab03;
 
 import java.util.Random;
 import java.util.Scanner;
-
+/*
+* Testcase
+* All Possible outcome
+* */
 public class Matrix {
     public static void main(String[] args) {
         System.out.print("Enter the size for the matrix: ");
