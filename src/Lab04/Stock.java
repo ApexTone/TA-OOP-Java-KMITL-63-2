@@ -48,8 +48,9 @@ public class Stock {
     }
 
     public double getChangePercent(){
-        if(previousClosingPrice == 0)
-            return 0;
+        if(previousClosingPrice == 0) {
+            throw new Error("Stock value can't be divided by 0");
+        }
         return (currentPrice-previousClosingPrice)/previousClosingPrice * 100;
     }
 
