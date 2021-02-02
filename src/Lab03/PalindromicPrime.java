@@ -7,10 +7,13 @@ import java.util.ArrayList;
 * */
 public class PalindromicPrime {
     public static void main(String[] args) {
+        getNPalindromicPrime(100);
+    }
+    public static void getNPalindromicPrime(int n){
         ArrayList<Integer> palindromicPrime = new ArrayList<>();
 
         for(int i=2;;i++){
-            if(palindromicPrime.size() >= 100){
+            if(palindromicPrime.size() >= n){
                 break;
             }
             if(isPrime(i)){
@@ -25,7 +28,6 @@ public class PalindromicPrime {
                 System.out.println();
             }
         }
-
     }
 
     public static boolean isPrime(int number){
