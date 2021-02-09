@@ -1,6 +1,7 @@
 package Lab05;
 
 import java.util.Date;
+import java.util.Scanner;
 
 /*
 * Testcase
@@ -39,7 +40,7 @@ public class Account {
     }
     public void setBalance(double balance) {
         if (balance < 0) {
-            System.err.println("Account balance can't be negative");
+            System.err.println("Account's balance can't be negative");
             this.balance = 0;
             return;
         }
@@ -62,10 +63,10 @@ public class Account {
     }
 
     public double getMonthlyInterestRate(){
-        return this.annualInterestRate/100/12;
+        return this.annualInterestRate/12;
     }
     public double getMonthlyInterest(){
-        return this.balance * this.getMonthlyInterestRate();
+        return this.balance * this.getMonthlyInterestRate()/100;
     }
     //Caution Here!
     public void withdraw(double cash){
@@ -90,10 +91,21 @@ public class Account {
 
     public static void main(String[] args) {
         System.out.println("--- Account Test ---");
-        Account account = new Account(1122, 20000);
+        System.out.print("Initial Balance: ");
+        Scanner scanner = new Scanner(System.in);
+        int cash = scanner.nextInt();
+        Account account = new Account(1122, cash);
         account.setAnnualInterestRate(4.5);
-        account.withdraw(2500);
-        account.deposit(3000);
-        System.out.println(account.getBalance() + " " + account.getMonthlyInterest() + " " + account.getDateCreated());
+
+        System.out.print("How much you'd like to withdraw?: ");
+        cash = scanner.nextInt();
+        account.withdraw(cash);
+
+        System.out.print("How much you'd like to deposit?: ");
+        cash = scanner.nextInt();
+        account.deposit(cash);
+        scanner.close();
+
+        System.out.println("Balance: " + account.getBalance() + "\nMonthly Interest: " + account.getMonthlyInterest() + "\nDate Created: " + account.getDateCreated());
     }
 }

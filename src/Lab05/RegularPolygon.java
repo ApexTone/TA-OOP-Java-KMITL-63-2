@@ -1,5 +1,7 @@
 package Lab05;
 
+import java.util.Scanner;
+
 /*
 * Testcase
 * side < 3
@@ -78,16 +80,42 @@ public class RegularPolygon {
     }
 
     public static void main(String[] args) {
-        RegularPolygon polygonA = new RegularPolygon();
-        RegularPolygon polygonB = new RegularPolygon(6,4);
-        RegularPolygon polygonC = new RegularPolygon(10,4,5.6,7.8);
-
-        System.out.println(polygonA);
-        System.out.println(polygonB);
-        System.out.println(polygonC);
-        //System.out.println(polygonA.getPerimeter() + " " + polygonA.getArea());
-        //System.out.println(polygonB.getPerimeter() + " " + polygonB.getArea());
-        //System.out.println(polygonC.getPerimeter() + " " + polygonC.getArea());
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        int n,side,x,y;
+        menu: while(true){
+            System.out.println("Pick a number:\n" +
+                    "1) for No-args constructor\n" +
+                    "2) for n, side constructor\n" +
+                    "3) for n, side, x, y constructor\n" +
+                    "others to quit");
+            choice = scanner.nextInt();
+            switch (choice){
+                case 1: {
+                    RegularPolygon polygon = new RegularPolygon();
+                    System.out.println(polygon.getPerimeter() + " " + polygon.getArea());
+                    break;
+                }
+                case 2: {
+                    n=scanner.nextInt();
+                    side=scanner.nextInt();
+                    RegularPolygon polygon = new RegularPolygon(n,side);
+                    System.out.println(polygon.getPerimeter() + " " + polygon.getArea());
+                    break;
+                }
+                case 3: {
+                    n=scanner.nextInt();
+                    side=scanner.nextInt();
+                    x=scanner.nextInt();
+                    y=scanner.nextInt();
+                    RegularPolygon polygon = new RegularPolygon(n,side,x,y);
+                    System.out.println(polygon.getPerimeter() + " " + polygon.getArea());
+                    break;
+                }
+                default: break menu;
+            }
+            scanner.close();
+        }
 
     }
 }
