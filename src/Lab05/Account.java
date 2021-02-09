@@ -4,6 +4,7 @@ import java.util.Date;
 
 /*
 * Testcase
+* Correctness
 * Overdraft
 * Negative annual interest rate
 * Negative withdraw
@@ -61,7 +62,7 @@ public class Account {
     }
 
     public double getMonthlyInterestRate(){
-        return this.annualInterestRate/100;
+        return this.annualInterestRate/100/12;
     }
     public double getMonthlyInterest(){
         return this.balance * this.getMonthlyInterestRate();
