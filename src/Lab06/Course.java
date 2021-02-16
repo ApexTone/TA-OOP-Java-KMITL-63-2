@@ -1,4 +1,7 @@
 package Lab06;
+
+import java.util.Arrays;
+
 /*
 * Testcase
 * drop student that doesn't in the class
@@ -29,15 +32,23 @@ public class Course {
     public String getCourseName() {
         return courseName;
     }
-    public String[] getStudents() {
-        return students;
+    public String getStudentsList() {
+        if(numberOfStudents == 0){
+            return "No student in this course";
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<numberOfStudents;i++){
+            sb.append(students[i]);
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 
     public void dropStudent(String student){
         for(int i=0;i<students.length;i++){
-            if(this.students[i].equals(student)){
-                for(int j=i+1;j<students.length;i++){
-                    students[i-1] = students[i];
+            if(student.equals(this.students[i])){
+                for(int j=i+1;j<students.length;j++){
+                    students[j-1] = students[j];
                 }
                 numberOfStudents--;
                 break;
@@ -49,7 +60,29 @@ public class Course {
         this.numberOfStudents = 0;
     }
 
+
     public static void main(String[] args) {
-        Course course = new Course("");
+        Course course = new Course("Object-Oriented Programming");
+        System.out.println("---ADD---");
+        course.addStudent("S1");
+        course.addStudent("S2");
+        course.addStudent("S3");
+        System.out.println(course.getStudentsList());
+        System.out.println("---DROP---");
+        course.dropStudent("NOT FOUND1");
+        course.dropStudent("S1");
+        course.dropStudent("S2");
+        course.dropStudent("S3");
+        course.dropStudent("NOT FOUND2");
+        System.out.println(course.getStudentsList());
+
+        System.out.println("---ADD 2---");
+        course.addStudent("S1");
+        course.addStudent("S2");
+        course.addStudent("S3");
+        System.out.println(course.getStudentsList());
+        System.out.println("---CLEAR---");
+        course.clear();
+        System.out.println(course.getStudentsList());
     }
 }
