@@ -1,7 +1,4 @@
 package Lab06;
-
-import java.util.Arrays;
-
 /*
 * Testcase
 * drop student that doesn't in the class
@@ -47,8 +44,13 @@ public class Course {
     public void dropStudent(String student){
         for(int i=0;i<students.length;i++){
             if(student.equals(this.students[i])){
-                for(int j=i+1;j<students.length;j++){
-                    students[j-1] = students[j];
+                if(numberOfStudents == 1){
+                    students[i] = null;
+                }
+                else {
+                    for (int j = i + 1; j < students.length; j++) {
+                        students[j - 1] = students[j];
+                    }
                 }
                 numberOfStudents--;
                 break;

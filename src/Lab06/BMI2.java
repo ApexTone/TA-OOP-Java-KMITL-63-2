@@ -16,6 +16,11 @@ public class BMI2 {
         setName(name);
         setAge(age);
         setWeight(weight);
+        if(feet <= 0 && inches <= 0){
+            System.out.println("Height can be 0, default to 1'0''");
+            feet = 1;
+            inches = 0;
+        }
         setFeet(feet);
         setInches(inches);
     }
@@ -59,7 +64,7 @@ public class BMI2 {
     }
 
     public double metricHeight(){
-        return (this.feet * 12 + this.inches) * 0.0254;
+        return ((this.feet * 12) + this.inches) * 0.0254;
     }
     public double metricWeight(){
         return this.weight * 0.45359237;

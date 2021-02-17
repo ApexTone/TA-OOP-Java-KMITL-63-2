@@ -5,6 +5,7 @@ package Lab06;
 * Extra dequeue after empty
 * extending array
 * negative queue size
+* edge case (queue size=8)
 * */
 
 public class MyQueue {
@@ -56,10 +57,10 @@ public class MyQueue {
 
     public static void main(String[] args) {
         MyQueue queue = new MyQueue();
-        for(int i=0;i<20;i++){
+        for(int i=0;i<8;i++){
             queue.enqueue(i);
         }
-        for(int i=0;i<20;i++){
+        for(int i=0;i<8;i++){
             System.out.println(queue.dequeue());
         }
         System.out.println(queue.dequeue());
