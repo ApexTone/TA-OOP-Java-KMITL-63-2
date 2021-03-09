@@ -1,5 +1,8 @@
 package Lab07;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
@@ -106,6 +109,7 @@ public class Person {
         salary = scanner.nextDouble();
         scanner.nextLine();//flush newline
         Employee employee = new Employee(name, address, phoneNumber, email, office, salary);
+        employee.setDateHired("2000-12-09");
         System.out.println(employee);
 
         String title;
@@ -193,7 +197,7 @@ class Student extends Person{
 }
 class Employee extends Person{
     private String office;
-    final private Date dateHired;
+    private Date dateHired;
     private double salary;
 
     public Employee() {
@@ -214,6 +218,8 @@ class Employee extends Person{
         this.dateHired = new Date();
     }
 
+
+
     public String getOffice() {
         return office;
     }
@@ -222,6 +228,16 @@ class Employee extends Person{
         this.office = office;
     }
 
+    public void setDateHired(String dateHired) {
+        //Taken from https://stackoverflow.com/a/22326440
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try{
+            this.dateHired = sdf.parse(dateHired); // Handle the ParseException here
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
     public Date getDateHired() {
         return dateHired;
     }
