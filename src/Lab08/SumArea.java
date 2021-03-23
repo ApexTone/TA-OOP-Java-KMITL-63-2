@@ -1,12 +1,25 @@
 package Lab08;
-
 public class SumArea {
-    public static double sumArea(GeometricObject[] a){
+    public static double sumArea(GeometricObject[] geometricObjects){
         double sum = 0;
-        for(GeometricObject geometricObject : a){
+        for(GeometricObject geometricObject : geometricObjects){
             if(geometricObject != null){
-                System.out.println(geometricObject.getClass().toString()+" "+geometricObject.getArea());
-                sum += geometricObject.getArea();
+                if(geometricObject instanceof Triangle){
+                    Triangle t = (Triangle)geometricObject;
+                    System.out.println("Triangle: "+ t.getA()+" "+t.getB()+" "+t.getC());
+
+                    sum += t.getArea();
+                }
+                else if(geometricObject instanceof Rectangle){
+                    Rectangle r = (Rectangle)geometricObject;
+                    System.out.println("Rectangle: "+ r.getWidth()+" "+r.getHeight());
+                    sum += r.getArea();
+                }
+                else if(geometricObject instanceof Circle){
+                    Circle c = (Circle)geometricObject;
+                    System.out.println("Circle: "+ c.getRadius());
+                    sum += c.getArea();
+                }
             }
         }
         return sum;

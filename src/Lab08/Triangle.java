@@ -17,6 +17,18 @@ public class Triangle extends GeometricObject{
         this.setC(c);
     }
 
+    //Use this constructor since it can guaranteed the existence of triangle
+    public Triangle(double xa, double ya, double xb,double yb, double xc,double yc,boolean isFilled, String color) {
+        super(isFilled, color);
+        this.setA(calculateLength(xa,ya,xb,yb));
+        this.setB(calculateLength(xb,yb,xc,yc));
+        this.setC(calculateLength(xc,yc,xa,ya));
+    }
+
+    private double calculateLength(double xa, double ya, double xb, double yb){
+        return Math.sqrt(Math.pow(xb-xa,2)+Math.pow(yb-ya,2));
+    }
+
     public double getA() {
         return a;
     }
@@ -59,6 +71,8 @@ public class Triangle extends GeometricObject{
         }
     }
 
+    //Maybe add coordinate as attribute
+
     @Override
     public double getArea() {
         double s = (a+b+c)/2;
@@ -83,7 +97,7 @@ public class Triangle extends GeometricObject{
     }
 
     public static void main(String[] args) {
-        Triangle triangle = new Triangle(5,6,7);
+        Triangle triangle = new Triangle(0,0,0,3,4,0,false,"Black");
         System.out.println(triangle);
     }
 }
