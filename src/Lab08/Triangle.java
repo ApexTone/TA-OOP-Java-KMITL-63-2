@@ -20,9 +20,7 @@ public class Triangle extends GeometricObject{
     //Use this constructor since it can guaranteed the existence of triangle
     public Triangle(double xa, double ya, double xb,double yb, double xc,double yc,boolean isFilled, String color) {
         super(isFilled, color);
-        this.setA(calculateLength(xa,ya,xb,yb));
-        this.setB(calculateLength(xb,yb,xc,yc));
-        this.setC(calculateLength(xc,yc,xa,ya));
+        this.setCoordinate(xa,ya,xb,yb,xc,yc);
     }
 
     private double calculateLength(double xa, double ya, double xb, double yb){
@@ -71,7 +69,21 @@ public class Triangle extends GeometricObject{
         }
     }
 
-    //Maybe add coordinate as attribute
+    public void setCoordinate(double xa, double ya, double xb,double yb, double xc,double yc){
+        if(isSameCoordinate(xa,ya,xb,yb) || isSameCoordinate(xb,yb,xc,yc) || isSameCoordinate(xc,yc,xa,ya)){
+            System.err.println("One or more coordinate is not distinct. Set all side to default length as 1.");//Prevent 0-length side
+            this.setA(1);
+            this.setB(1);
+            this.setC(1);
+            return;
+        }
+        this.setA(calculateLength(xa,ya,xb,yb));
+        this.setB(calculateLength(xb,yb,xc,yc));
+        this.setC(calculateLength(xc,yc,xa,ya));
+    }
+    private boolean isSameCoordinate(double xa, double ya, double xb,double yb){
+        return xa==xb && ya==yb;
+    }
 
     @Override
     public double getArea() {
