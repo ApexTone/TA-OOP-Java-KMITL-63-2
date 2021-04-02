@@ -1,7 +1,9 @@
 package Lab08;
 
 
-public class Circle extends GeometricObject{
+import java.util.Objects;
+
+public class Circle extends GeometricObject implements Cloneable{
     private double radius;
 
     public Circle() {
@@ -31,6 +33,16 @@ public class Circle extends GeometricObject{
         return this.radius*2;
     }
 
+    public static String max(Circle c1, Circle c2){
+        if(c1.radius > c2.radius){
+            return c1.toString();
+        }
+        if(c2.radius > c1.radius){
+            return c2.toString();
+        }
+        return "EQUALS";
+    }
+
     @Override
     public double getArea() {
         return Math.PI*this.radius*this.radius;
@@ -39,5 +51,30 @@ public class Circle extends GeometricObject{
     @Override
     public double getPerimeter() {
         return Math.PI*2*this.radius;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +" Circle{" +
+                "radius=" + radius +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Circle circle = (Circle) o;
+        return Double.compare(circle.radius, radius) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

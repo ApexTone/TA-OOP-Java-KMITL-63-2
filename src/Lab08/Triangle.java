@@ -1,5 +1,7 @@
 package Lab08;
 
+import java.util.Objects;
+
 public class Triangle extends GeometricObject{
     private double a,b,c;
 
@@ -27,6 +29,8 @@ public class Triangle extends GeometricObject{
         return Math.sqrt(Math.pow(xb-xa,2)+Math.pow(yb-ya,2));
     }
 
+
+    //TODO: Validate every sides of a triangle
     public double getA() {
         return a;
     }
@@ -85,6 +89,16 @@ public class Triangle extends GeometricObject{
         return xa==xb && ya==yb;
     }
 
+    public static String max(Triangle t1, Triangle t2){
+        if(t1.getArea() > t2.getArea()){
+            return t1.toString();
+        }
+        if(t2.getArea() > t1.getArea()){
+            return t2.toString();
+        }
+        return "EQUALS";
+    }
+
     @Override
     public double getArea() {
         double s = (a+b+c)/2;
@@ -106,6 +120,19 @@ public class Triangle extends GeometricObject{
                 ", area=" + this.getArea() +
                 ", perimeter=" + this.getPerimeter()+
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Double.compare(triangle.getArea(), this.getArea()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(a, b, c);
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package Lab08;
 
+import java.util.Objects;
+
 public class Rectangle extends GeometricObject{
     private double height, width;
 
@@ -44,6 +46,17 @@ public class Rectangle extends GeometricObject{
         }
     }
 
+    public static String max(Rectangle r1, Rectangle r2){
+        if(r1.getArea() > r2.getArea()){
+            return r1.toString();
+        }
+        if(r2.getArea() > r1.getArea()){
+            return r2.toString();
+        }
+        return "EQUALS";
+    }
+
+
     @Override
     public double getArea() {
         return width*height;
@@ -52,5 +65,18 @@ public class Rectangle extends GeometricObject{
     @Override
     public double getPerimeter() {
         return (width*2)+(height*2);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Double.compare(rectangle.getArea(), this.getArea()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(height, width);
     }
 }
